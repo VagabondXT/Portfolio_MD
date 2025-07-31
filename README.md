@@ -1,4 +1,6 @@
 Mohammad Bin Tarique | Data Science Portfolio
+
+
 This repository hosts my interactive web portfolio, showcasing my skills, projects, and experience in data science and analytics. 
 It's designed for clarity and engagement, providing a quick overview of my capabilities.
 Features
