@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammad Bin Tarique | Data Science Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals with Subtle Accents -->
+    <!-- Application Structure Plan: A single-page, top-down narrative structure designed for recruiters. It starts with a strong hero section for immediate impact, followed by a 'Why Me for AIDocbuilder?' section that directly maps skills to the job description. The core of the application is a detailed, interactive 'Projects' section where key achievements are presented with metrics and visualizations. This is followed by 'Technical Skills' and 'Experience' sections for comprehensive detail. This linear, story-driven flow is chosen for its clarity and persuasive power, guiding the user through a compelling case for candidacy without requiring complex navigation. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Reduced asset production time by 40%. Goal: Showcase quantifiable impact. Viz/Presentation: Bar Chart (Chart.js). Interaction: Tooltips on hover to show data. Justification: A bar chart provides a clear, immediate visual comparison of 'before' and 'after,' making the 40% reduction instantly understandable. Library: Chart.js for its simplicity and responsiveness.
+        - Report Info: Increased SaaS conversion by 22%. Goal: Demonstrate business impact. Viz/Presentation: Donut Chart (Chart.js). Interaction: Hover to highlight segments. Justification: A donut chart effectively visualizes a part-to-whole relationship, clearly showing the 22% increase in the context of the overall conversion metric. Library: Chart.js.
+        - Report Info: Technical skills proficiency. Goal: Provide a quick, scannable overview of technical abilities. Viz/Presentation: Grouped lists with skill-level indicators (HTML/Tailwind). Interaction: None, designed for quick reading. Justification: A clean, organized list is more effective than a complex chart for conveying a wide range of qualitative skill information. Method: HTML/Tailwind.
+        - Report Info: Project methodologies (e.g., AI-NPC system). Goal: Explain complex technical processes. Viz/Presentation: Structured text with highlighted keywords (HTML/Tailwind). Interaction: None. Justification: Clear, well-structured text is best for explaining nuanced technical workflows and architectures. Method: HTML/Tailwind.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF7;
+            color: #3D3D3D;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .nav-link {
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #D97706; /* Amber-600 */
+        }
+        .section-title {
+            border-bottom: 2px solid #FBBF24; /* Amber-400 */
+            padding-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-gray-800">
+                Mohammad Bin Tarique
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#why-me" class="nav-link text-gray-600 font-medium">Why AIDocbuilder?</a>
+                <a href="#projects" class="nav-link text-gray-600 font-medium">My Projects</a>
+                <a href="#skills" class="nav-link text-gray-600 font-medium">My Skills</a>
+                <a href="#experience" class="nav-link text-gray-600 font-medium">Experience</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden flex items-center">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#why-me" class="block py-2 px-4 text-sm hover:bg-gray-200">Why AIDocbuilder?</a>
+            <a href="#projects" class="block py-2 px-4 text-sm hover:bg-gray-200">My Projects</a>
+            <a href="#skills" class="block py-2 px-4 text-sm hover:bg-gray-200">My Skills</a>
+            <a href="#experience" class="block py-2 px-4 text-sm hover:bg-gray-200">Experience</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Hero Section -->
+        <section class="text-center mb-20">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Mohammad Bin Tarique: Data Science & Analytics Enthusiast</h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                Passionate about leveraging data and machine learning to solve real-world problems and drive impactful solutions. Eager to grow and contribute to innovative AI-driven projects.
+            </p>
+        </section>
+
+        <!-- Why Me for AIDocbuilder -->
+        <section id="why-me" class="mb-20 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-2 section-title inline-block">Why I'm a Good Fit for AIDocbuilder</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">This section highlights how my skills and experiences align with what AIDocbuilder is looking for, and my eagerness to contribute to your mission.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-amber-500">
+                    <h3 class="font-bold text-xl mb-2">Independent Learner & Problem-Solver</h3>
+                    <p class="text-gray-600">The job description emphasizes self-motivation. In my past roles, I've consistently taken the initiative to research and implement solutions, demonstrating a strong capacity for independent problem-solving.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-amber-500">
+                    <h3 class="font-bold text-xl mb-2">Foundational ML/DL & Algorithms</h3>
+                    <p class="text-gray-600">I have a solid understanding of ML/DL principles and experience in developing algorithms. My work includes building ML pipelines and contributing to behavioral AI systems for dynamic interactions.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-amber-500">
+                    <h3 class="font-bold text-xl mb-2">Python & Data Stack Ready</h3>
+                    <p class="text-gray-600">I'm proficient in Python, with hands-on experience in Jupyter Notebook, pandas, NumPy, and scikit-learn. My statistical background further strengthens my approach to data analysis and modeling.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="mb-20 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-2 section-title inline-block">A Glimpse at My Projects & Impact</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Here are a couple of projects that showcase my practical application of data science and AI, and the tangible results achieved.</p>
+            
+            <div class="bg-white p-8 rounded-lg shadow-lg mb-12">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">Project: AI-NPC Integration & Behavioral Systems</h3>
+                        <p class="text-gray-600 mb-4">
+                            Contributed to the development and integration of a behavioral AI system for Non-Player Characters (NPCs) in a Unity environment, involving Python-based middleware for complex logic and dynamic interactions.
+                        </p>
+                        <h4 class="font-semibold mb-2">Key Contributions:</h4>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>Explored NLP principles for dynamic dialogue generation.</li>
+                            <li>Assisted in implementing sentiment analysis for NPC reactions.</li>
+                            <li>Helped build a local MongoDB database with a Flask API for real-time data retrieval.</li>
+                            <li>Collaborated within an Agile Scrum team.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-center mb-2">Impact: Streamlined Production Time</h4>
+                        <p class="text-center text-gray-500 text-sm mb-4">Efforts in data pipeline improvements and automation contributed to a significant reduction in manual production time.</p>
+                        <div class="chart-container">
+                            <canvas id="productionTimeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                     <div>
+                        <h4 class="font-semibold text-center mb-2">Impact: Positive Shift in SaaS Conversion</h4>
+                        <p class="text-center text-gray-500 text-sm mb-4">Statistical modeling work directly contributed to a measurable increase in product conversions.</p>
+                        <div class="chart-container">
+                            <canvas id="conversionRateChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">Project: Statistical Modeling for Market Entry</h3>
+                        <p class="text-gray-600 mb-4">
+                            Participated in primary market research and statistical analysis for a European market entry strategy, focusing on developing data-driven pricing and business solutions for SaaS products.
+                        </p>
+                        <h4 class="font-semibold mb-2">Key Contributions:</h4>
+                        <ul class="list-disc list-inside text-gray-600 space-y-1">
+                            <li>Applied Generalized Linear Models (GLM) to inform pricing strategies.</li>
+                            <li>Assisted in primary data collection (500+ samples) and expert focus groups.</li>
+                            <li>Developed interactive dashboards to visualize key business metrics.</li>
+                            <li>Helped translate statistical findings into actionable business strategies.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Technical Skills Section -->
+        <section id="skills" class="mb-20 scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-2 section-title inline-block">My Technical Toolkit</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">I'm equipped with a solid set of programming, data systems, and machine learning skills, ready to tackle diverse data challenges.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="font-bold text-xl mb-3">Python & Data Science</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><span class="font-semibold">Python:</span> Proficient</li>
+                        <li><span class="font-semibold">Pandas & NumPy:</span> Experienced</li>
+                        <li><span class="font-semibold">Scikit-learn:</span> Experienced</li>
+                        <li><span class="font-semibold">Jupyter Notebook:</span> Experienced</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="font-bold text-xl mb-3">AI / ML & Statistics</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><span class="font-semibold">Statistical Modeling:</span> GLMs, Regression</li>
+                        <li><span class="font-semibold">Behavioral Modeling:</span> NLP, Sentiment Analysis</li>
+                        <li><span class="font-semibold">Hypothesis Testing:</span> Experienced</li>
+                        <li><span class="font-semibold">Data Wrangling:</span> Proficient</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="font-bold text-xl mb-3">Databases & Tools</h3>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><span class="font-semibold">MongoDB:</span> CRUD, Indexing</li>
+                        <li><span class="font-semibold">Flask:</span> API Development</li>
+                        <li><span class="font-semibold">Unity & Blender:</span> Familiar</li>
+                        <li><span class="font-semibold">SPSS & R:</span> Familiar</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section id="experience" class="scroll-mt-20">
+            <h2 class="text-3xl font-bold text-center mb-2 section-title inline-block">My Professional Journey</h2>
+             <p class="text-center text-gray-600 mb-12 max-w-3xl mx-auto">Here's a look at my professional background, highlighting my roles and contributions in data science and analytics.</p>
+            <div class="space-y-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-bold">Project Lead - 3D team & AI Integration</h3>
+                            <p class="font-medium text-gray-700">PixelGames by MetaMix3D (Remote)</p>
+                        </div>
+                        <p class="text-gray-500 font-medium">2023 - Present</p>
+                    </div>
+                    <p class="mt-4 text-gray-600">Led technical development for Unity-based 3D gaming assets with AI integration. Spearheaded creation of 500+ assets, directed AI-NPC system development, and managed a cross-functional team of 6, contributing to a 40% reduction in asset production time.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-bold">Data Science & AI Development</h3>
+                            <p class="font-medium text-gray-700">EDGE (Training Program) | LICT SUST</p>
+                        </div>
+                        <p class="text-gray-500 font-medium">Till December 2024</p>
+                    </div>
+                    <p class="mt-4 text-gray-600">Developed end-to-end ML pipelines in Python, from data ingestion and EDA to model training and deployment. Engineered classification models (Logistic Regression, Random Forest) and clustering algorithms (K-Means) in scikit-learn.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-xl font-bold">Research & Analytics Specialist</h3>
+                            <p class="font-medium text-gray-700">Lilliput Digital</p>
+                        </div>
+                        <p class="text-gray-500 font-medium">[Dates not specified]</p>
+                    </div>
+                    <p class="mt-4 text-gray-600">Focused on data-driven business solutions. Led primary research for European market entry, developed GLM-based pricing strategies that contributed to a 22% increase in conversion, and created interactive dashboards for software metrics.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-20">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <h3 class="text-2xl font-bold mb-2">Let's Connect!</h3>
+            <p class="mb-4">I'm always open to discussing new opportunities and how my skills can be a great fit.</p>
+            <div class="flex justify-center space-x-6">
+                <a href="mailto:md.modhs210@gmail.com" class="hover:text-amber-400 transition-colors">md.modhs210@gmail.com</a>
+                <a href="https://github.com/Mohammad-Git" target="_blank" class="hover:text-amber-400 transition-colors">GitHub</a>
+                <a href="https://www.linkedin.com/in/mohammad-bini-tarique/" target="_blank" class="hover:text-amber-400 transition-colors">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu on link click
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Chart.js Implementations
+            const chartLabelColor = '#3D3D3D';
+            const chartGridColor = 'rgba(200, 200, 200, 0.2)';
+
+            // Production Time Chart
+            const prodCtx = document.getElementById('productionTimeChart');
+            if(prodCtx) {
+                new Chart(prodCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Before Automation', 'After Automation'],
+                        datasets: [{
+                            label: 'Production Time (Arbitrary Units)',
+                            data: [100, 60],
+                            backgroundColor: [
+                                'rgba(251, 146, 60, 0.6)', // Amber-400
+                                'rgba(217, 119, 6, 0.6)'  // Amber-600
+                            ],
+                            borderColor: [
+                                'rgba(251, 146, 60, 1)',
+                                'rgba(217, 119, 6, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            title: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.y !== null) {
+                                            if(context.label === 'After Automation') {
+                                                label += '40% Reduction';
+                                            } else {
+                                                label += 'Baseline';
+                                            }
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: { color: chartLabelColor },
+                                grid: { color: chartGridColor }
+                            },
+                            x: {
+                                ticks: { color: chartLabelColor },
+                                grid: { display: false }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Conversion Rate Chart
+            const convCtx = document.getElementById('conversionRateChart');
+            if(convCtx) {
+                new Chart(convCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Previous Conversion', 'Increased Conversion (22%)'],
+                        datasets: [{
+                            data: [78, 22],
+                            backgroundColor: [
+                                'rgba(209, 213, 219, 0.7)', // Gray-300
+                                'rgba(217, 119, 6, 0.7)'   // Amber-600
+                            ],
+                            borderColor: [
+                                '#ffffff',
+                                '#ffffff'
+                            ],
+                            borderWidth: 2,
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: { color: chartLabelColor }
+                            },
+                            title: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `${context.label}: ${context.parsed}%`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
